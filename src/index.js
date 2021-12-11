@@ -24,7 +24,6 @@ function formatDate(timestamp) {
 function displayForcast() {
   let forecastElement = document.querySelector("#forecast");
 
-  
   let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue", "Wed"];
   let forecastHTML = `<div class="row">`;
   days.forEach(function (day) {
@@ -32,7 +31,7 @@ function displayForcast() {
       forecastHTML +
       `
  <div class="col-2">
-    <div class="weather-forecast-date">${days}</div>
+    <div class="weather-forecast-date">${day}</div>
       <img
       src="https://img.icons8.com/small/16/000000/partly-cloudy-day.png"
       alt=""
@@ -42,41 +41,41 @@ function displayForcast() {
 </div>
 </div>
 `;
+  });
 
-    forecastHTML = forecastHTML + `</div>`;
-    forecastElement.innerHTML = forecastHTML;
-  }
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 
 function displayTemperature(response) {
-      let tempertureElement = document.querySelector("#temperature");
-      let cityElement = document.querySelector("#city");
-      let descriptionElement = document.querySelector("#description");
-      let humidityElement = document.querySelector("#humidity");
-      let windElement = document.querySelector("#wind");
-      let dateElement = document.querySelector("#date");
-      let iconElement = document.querySelector("#icon");
+  let tempertureElement = document.querySelector("#temperature");
+  let cityElement = document.querySelector("#city");
+  let descriptionElement = document.querySelector("#description");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+  let dateElement = document.querySelector("#date");
+  let iconElement = document.querySelector("#icon");
 
-      fahrenheitTemperature = response.data.main.temp;
+  fahrenheitTemperature = response.data.main.temp;
 
-      tempertureElement.innerHTML = Math.round(fahrenheitTemperature);
-      cityElement.innerHTML = response.data.name;
-      descriptionElement.innerHTML = response.data.weather[0].description;
-      humidityElement.innerHTML = response.data.main.humidity;
-      windElement.innerHTML = Math.round(response.data.wind.speed);
-      dateElement.innerHTML = formatDate(response.data.dt * 1000);
-      iconElement.setAttribute(
-        "src",
-        `https://img.icons8.com/${response.data.weather[0].icon}/16/000000/partly-cloudy-day.png`
-      );
-      iconElement.setAttribute("alt", response.data.weather[0].description);
-    }
-  
-      function search(city) {
-        let apiKey = "7fe508d235d0ee4554ec8bb21032d44e";
-        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-        axios.get(apiUrl).then(displayTemperature);
-      }
-    
+  tempertureElement.innerHTML = Math.round(fahrenheitTemperature);
+  cityElement.innerHTML = response.data.name;
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  iconElement.setAttribute(
+    "src",
+    `https://img.icons8.com/${response.data.weather[0].icon}/16/000000/partly-cloudy-day.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
+}
+
+function search(city) {
+  let apiKey = "7fe508d235d0ee4554ec8bb21032d44e";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemperature);
+}
 
 function handleSubmit(event) {
   event.preventDefault();
@@ -107,9 +106,9 @@ let fahrenheitTemperature = null;
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-  let celsiusLink = document.querySelector("#celsius-link");
-  celsiusLink.addEventListener("click", showCelsiusTemperature);
-  
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsiusTemperature);
+
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
