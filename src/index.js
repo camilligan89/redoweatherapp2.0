@@ -30,7 +30,7 @@ function displayForcast() {
     forecastHTML =
       forecastHTML +
       `
- <div class="col-2">
+ <div class="col-6">
     <div class="weather-forecast-date">${day}</div>
       <img
       src="https://img.icons8.com/small/16/000000/partly-cloudy-day.png"
