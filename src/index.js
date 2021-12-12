@@ -18,7 +18,7 @@ function formatDate(timestamp) {
     "Saturday"
   ];
   let day = days[date.getDay()];
-  return `${day} ${hours} ${minutes}`;
+  return `${day} ${hours}:${minutes}`;
 }
 
 function displayForcast() {
@@ -33,7 +33,7 @@ function displayForcast() {
  <div class="col-6">
     <div class="weather-forecast-date">${day}</div>
       <img
-      src="https://img.icons8.com/small/16/000000/partly-cloudy-day.png"
+      src="http://openweathermap.org/img/wn/10d@2x.png"
       alt=""
       width= "42"/>
   <div class="weather-forecast-temperatures"><span class="weather-forecast-temperature-max">18°</span> <span class="weather-forecast-temperature-min">12°</span></div>
@@ -66,7 +66,7 @@ function displayTemperature(response) {
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute(
     "src",
-    `https://img.icons8.com/${response.data.weather[0].icon}/16/000000/partly-cloudy-day.png`
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
