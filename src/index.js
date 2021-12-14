@@ -30,13 +30,18 @@ function displayForcast() {
     forecastHTML =
       forecastHTML +
       `
- <div class="col-6">
+ <div class="col-1">
+ <div class="card" style="width: 6rem";>
+  <div class="card-body">
     <div class="weather-forecast-date">${day}</div>
       <img
-      src="http://openweathermap.org/img/wn/10d@2x.png"
+      src="https://openweathermap.org/img/wn/10d@2x.png"
       alt=""
       width= "42"/>
-  <div class="weather-forecast-temperatures"><span class="weather-forecast-temperature-max">18°</span> <span class="weather-forecast-temperature-min">12°</span></div>
+  <div class="weather-forecast-temperatures"><span class="weather-forecast-temperature-max">18°</span> <span class="weather-forecast-temperature-min">12°</span>
+  </div>
+  </div>
+  </div>
   </div>
 `;
   });
@@ -64,7 +69,7 @@ function displayTemperature(response) {
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
