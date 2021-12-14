@@ -72,7 +72,6 @@ function displayForcast(response) {
 
 function getForecast(coordinates) {
   let apiKey = "7fe508d235d0ee4554ec8bb21032d44e";
-  apiKey;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayForcast);
 }
@@ -115,6 +114,7 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
+//Remove this below
 function showCelsiusTemperature(event) {
   event.preventDefault();
   let tempertureElement = document.querySelector("#temperature");
@@ -134,14 +134,17 @@ function displayFahrenheitTemperature(event) {
 }
 
 let fahrenheitTemperature = null;
+//Remove this above
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
+//Remove this below
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsiusTemperature);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+//Remove this above
 
 search("Charleston");
