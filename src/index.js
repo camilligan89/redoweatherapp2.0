@@ -115,7 +115,6 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-//Remove this below
 function showCelsiusTemperature(event) {
   event.preventDefault();
 
@@ -135,18 +134,14 @@ function displayFahrenheitTemperature(event) {
 }
 
 let fahrenheitTemperature = null;
-//Remove this above
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-//Remove this below
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsiusTemperature);
-
-//Remove this above
 
 search("Charleston");
