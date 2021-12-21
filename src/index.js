@@ -88,7 +88,7 @@ function displayTemperature(response) {
 
   fahrenheitTemperature = response.data.main.temp;
 
-  tempertureElement.innerHTML = Math.round(fahrenheitTemperature);
+  tempertureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
@@ -118,11 +118,11 @@ function handleSubmit(event) {
 //Remove this below
 function showCelsiusTemperature(event) {
   event.preventDefault();
-  let tempertureElement = document.querySelector("#temperature");
 
-  fahrenheitLink.classList.remove("active");
-  celsiusLink.classList.add("active");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
   let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
+  let tempertureElement = document.querySelector("#temperature");
   tempertureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
@@ -141,11 +141,12 @@ let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
 //Remove this below
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsiusTemperature);
 
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 //Remove this above
 
 search("Charleston");
