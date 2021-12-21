@@ -57,7 +57,7 @@ li:first-letter {
 }
 
 .weather-temperature strong {
-  color: #0d6ad4;
+  color: #541f64;
   font-size: 64px;
   line-height: 1.5;
   font-weight: 400;
@@ -67,15 +67,7 @@ li:first-letter {
   position: relative;
   font-size: 16px;
   top: -34px;
-}
-
-.weather-temperature .active {
-  color: rgb(33, 33, 33);
-  cursor: default;
-}
-
-.weather-temperature .active:hover {
-  text-decoration: none;
+  color: black;
 }
 
 .card {
@@ -87,3 +79,13 @@ li:first-letter {
   width: 90px;
   color: #11535c;
 }
+.weather-temperature .active {
+  color: #541f64;;
+  cursor: default;
+  text-decoration: none;
+}
+
+.weather-temperature .active:hover {
+  text-decoration: none;
+}
+
