@@ -88,7 +88,7 @@ function displayTemperature(response) {
 
   fahrenheitTemperature = response.data.main.temp;
 
-  tempertureElement.innerHTML = Math.round(response.data.main.temp);
+  tempertureElement.innerHTML = Math.round(fahrenheitTemperature);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
