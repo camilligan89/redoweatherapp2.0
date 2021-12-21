@@ -115,6 +115,15 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
+
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  fahrenheitLink.classList.add("active");
+  celsiusLink.classList.remove("active");
+  let tempertureElement = document.querySelector("#temperature");
+  tempertureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
 function showCelsiusTemperature(event) {
   event.preventDefault();
   let tempertureElement = document.querySelector("#temperature"); 
@@ -123,14 +132,6 @@ function showCelsiusTemperature(event) {
     celsiusLink.classList.add("active");
   let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
   tempertureElement.innerHTML = Math.round(celsiusTemperature);
-}
-
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  fahrenheitLink.classList.add("active");
-  celsiusLink.classList.remove("active");
-  let tempertureElement = document.querySelector("#temperature");
-  tempertureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
 let fahrenheitTemperature = null;
