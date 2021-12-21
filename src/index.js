@@ -117,11 +117,11 @@ function handleSubmit(event) {
 
 function showCelsiusTemperature(event) {
   event.preventDefault();
-
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
+  let tempertureElement = document.querySelector("#temperature"); 
+  
+   fahrenheitLink.classList.remove("active");
+    celsiusLink.classList.add("active");
   let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
-  let tempertureElement = document.querySelector("#temperature");
   tempertureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
